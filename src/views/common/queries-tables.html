@@ -1,0 +1,120 @@
+<div class="animated fadeIn" >
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Users
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="BootstrapIntegrationCtrl as vm">
+                        <table
+                            datatable=""
+                            dt-options="vm.dtOptions"
+                            dt-columns="vm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Tasks
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="TaskQueriesBootstrapIntegrationCtrl as qvm">
+                        <table
+                            datatable=""
+                            dt-options="qvm.dtOptions"
+                            dt-columns="qvm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Customers
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="CustomersQueriesBootstrapIntegrationCtrl as cvm">
+                        <table
+                            datatable=""
+                            dt-options="cvm.dtOptions"
+                            dt-columns="cvm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Team
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="TeamQueriesBootstrapIntegrationCtrl as tvm">
+                        <table
+                            datatable=""
+                            dt-options="tvm.dtOptions"
+                            dt-columns="tvm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Requests
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="RequestsQueriesBootstrapIntegrationCtrl as rvm">
+                        <table
+                            datatable=""
+                            dt-options="rvm.dtOptions"
+                            dt-columns="rvm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Rewards
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid" ng-controller="RewardsQueriesBootstrapIntegrationCtrl as rwvm">
+                        <table
+                            datatable=""
+                            dt-options="rwvm.dtOptions"
+                            dt-columns="rwvm.dtColumns"  
+                            class="table responsive nowrap table-bordered table-striped"
+                            width="100%"
+                        ></table>        
+                    </div>        
+                </div>        
+            </div>            
+        </div>
+    </div>
+</div>

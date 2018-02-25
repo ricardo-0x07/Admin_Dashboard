@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="card row" >
+      <div class="card-header ">
+        <strong>Task</strong> Form
+      </div>
+      <div class="card-body ">
+        <form
+          name="eventForm"
+          id="eventForm"
+          novalidate 
+          class="form-horizontal "
+          ng-keyup="$event.keyCode == 13 && !form.$invalid && $ctrl.save($ctrl.item)"
+        >
+          <div class="form-group row ">
+            <label class="col-md-3 col-form-label " for="hf-name ">Name</label>
+            <div class="col-md-9 ">
+              <input
+                type="text"
+                ng-model='$ctrl.item.title'
+                autofocus
+                required
+                id="hf-name "
+                name="hf-name "
+                class="form-control "
+                placeholder="Enter name.. "
+              >
+              <span class="label label-danger" ng-show="eventForm.hf-name.$touched && eventForm.hf-name.$error.required">Kindly enter the task name.</span>
+            </div>
+          </div>
+          <div class="form-group row ">
+            <label class="col-md-3 col-form-label " for="hf-description ">Description</label>
+            <div class="col-md-9 ">
+              <input
+                type="text "
+                ng-model='$ctrl.item.description'
+                required
+                id="hf-description "
+                name="hf-description "
+                class="form-control "
+                placeholder="Enter description.. "
+              >
+              <span class="label label-danger" ng-show="eventForm.hf-description.$touched && eventForm.hf-description.$error.required">Kindly enter the task description.</span>
+            </div>
+          </div>
+          <div class="form-group row ">
+            <label class="col-md-3 col-form-label " for="hf-schedule ">Schedule</label>
+            <div class="col-md-9 ">
+
+                <fieldset class="form-group" >
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <input
+                      id="hf-schedule "
+                      name="hf-schedule "
+                      required
+                      date-range-picker
+                      class="form-control date-picker"
+                      type="text"
+                      ng-model="$ctrl.item.date"
+                      options="$ctrl.opts"
+                    />
+                  </div>
+                  <span class="label label-danger" ng-show="eventForm.hf-schedule.$touched && eventForm.hf-schedule.$error.required">Kindly enter a schedule for the task.</span>
+                </fieldset>
+
+              <!--<span class="help-block ">Please enter its start and end dates</span>-->
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer ">
+        <button
+          type="button"
+          class="btn btn-sm btn-primary "
+          ng-click="$ctrl.save($ctrl.item)"
+          ng-disabled='form.$invalid'><i class="fa fa-dot-circle-o "></i> Submit</button>
+        <button
+          type="reset "
+          class="btn btn-sm btn-danger "
+        ><i class="fa fa-ban "></i> Reset</button>
+        <button
+          raised
+          class="btn btn-warning cancel"
+          id="cancel-btn"
+          ng-click="$ctrl.cancel()"
+        >Cancel</button>
+      </div>
+    </div>
+</div><!--/.col-->

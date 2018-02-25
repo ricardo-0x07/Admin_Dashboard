@@ -1,0 +1,43 @@
+<div ng-controller="DynamicAdminCtrl as $ctrl">
+  <div  class="row">
+    <div class="col-md-2" style="display: flex; flex-direction: column">
+      <!-- Single button using append-to-body -->
+      <div class="btn-group" uib-dropdown dropdown-append-to-body>
+          <button id="btn-append-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle style="max-height: 3em">
+            Select Graph <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.graphs track by key">
+              <a href="#" ng-click="$ctrl.addGraph(key)">{{key | uppercase }}</a>
+            </li>
+          </ul>
+        </div>
+
+      <!-- Single button using append-to-body -->
+      <div class="btn-group" uib-dropdown dropdown-append-to-body>
+          <button id="btn-append-to-body" type="button" class="btn btn-danger" uib-dropdown-toggle style="max-height: 3em; margin-top: 3em">
+            Select Table <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.tables track by key">
+              <a href="#" ng-click="$ctrl.addTable(key)">{{key | uppercase }}</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="col-md-10" >
+      <div class="row">
+        <div  ng-repeat="(key, graph) in $ctrl.displayedGraphs track by $index" class="col-xs-12 col-sm-6" >
+          <a href="#" ng-click="$ctrl.removeGraph(key)"><i class="fa fa-close"></i></a>
+          <ng-include src="graph"></ng-include>
+        </div>        
+      </div>
+      <div class="row">
+        <div ng-repeat="(key, table) in $ctrl.displayedTables track by $index" class="col-md-12" >
+            <a href="#" ng-click="$ctrl.removeTable(key)"><i class="fa fa-close"></i></a>
+            <ng-include src="table"></ng-include>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
