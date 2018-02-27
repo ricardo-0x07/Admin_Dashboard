@@ -1,0 +1,186 @@
+<div ng-controller="DynamicSchedulerCtrl as $ctrl">
+  <div  class="row" style="display: flex; flex: 1">
+
+    <div class="col-md-6">
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> Query Name
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li class="list-group-item">
+                <input type="checkbox" ng-model="col.selected"> Cras justo odio
+              </li>
+              <li class="list-group-item">
+                <input type="checkbox" ng-model="col.selected"> Cras justo odio
+              </li>
+              <li class="list-group-item">
+                <input type="checkbox" ng-model="col.selected"> Cras justo odio
+              </li>
+              <li class="list-group-item">
+                <input type="checkbox" ng-model="col.selected"> Cras justo odio
+              </li>
+            </ul>       
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> DateRangePicker
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <h6>Order by</h6>
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li>Check All
+                  <input type="checkbox" ng-model="selectedAllOrderBy" ng-click="$ctrl.checkAllOrderBy()" />
+              </li>
+              <li ng-repeat="col in $ctrl.orderOptions">
+                <label class="btn btn-secondary">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </label>
+              </li>
+            </ul>       
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> DateRangePicker
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <h6>Math Ops</h6>
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li>Check All
+                  <input type="checkbox" ng-model="selectedAllMathOpts" ng-click="$ctrl.checkAllMathOps()" />
+              </li>
+              <li ng-repeat="col in $ctrl.mathOptions">
+                <label class="btn btn-secondary">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </label>
+              </li>
+            </ul>       
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ng-model="singleModel"
+            style="margin-bottom: 2em"
+          >
+            Execute
+          </button>    
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> DateRangePicker
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <h6>Group by</h6>
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li>Check All
+                  <input type="checkbox" ng-model="selectedAllGroupsBy" ng-click="$ctrl.checkAllGroups()" />
+              </li>
+              <li ng-repeat="col in $ctrl.groupOptions">
+                <label class="btn btn-secondary">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </label>
+              </li>
+            </ul>       
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> DateRangePicker
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <h6>Order by</h6>
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li>Check All
+                  <input type="checkbox" ng-model="selectedAllOrderBy" ng-click="$ctrl.checkAllOrderBy()" />
+              </li>
+              <li ng-repeat="col in $ctrl.orderOptions">
+                <label class="btn btn-secondary">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </label>
+              </li>
+            </ul>       
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i> DateRangePicker
+          <div class="card-actions">
+            <a href="https://github.com/fragaria/angular-daterangepicker">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body" >
+          <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+            <h6>Math Ops</h6>
+            <ul class="btn-group-toggle" style="list-style:none">
+              <li>Check All
+                  <input type="checkbox" ng-model="selectedAllMathOpts" ng-click="$ctrl.checkAllMathOps()" />
+              </li>
+              <li ng-repeat="col in $ctrl.mathOptions">
+                <label class="btn btn-secondary">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </label>
+              </li>
+            </ul>       
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            ng-model="singleModel"
+            style="margin-bottom: 2em"
+          >
+            Execute
+          </button>    
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -7,8 +7,8 @@
             Select Graph <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.graphs track by key">
-              <a href="#" ng-click="$ctrl.addGraph(key)">{{key | uppercase }}</a>
+            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.DashboardService.graphs track by key">
+              <a href="#" ng-click="$ctrl.DashboardService.addGraph(key)">{{key | uppercase }}</a>
             </li>
           </ul>
         </div>
@@ -19,22 +19,22 @@
             Select Table <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
-            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.tables track by key">
-              <a href="#" ng-click="$ctrl.addTable(key)">{{key | uppercase }}</a>
+            <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.DashboardService.tables track by key">
+              <a href="#" ng-click="$ctrl.DashboardService.addTable(key)">{{key | uppercase }}</a>
             </li>
           </ul>
         </div>
     </div>
     <div class="col-md-10" >
       <div class="row">
-        <div  ng-repeat="(key, graph) in $ctrl.displayedGraphs track by $index" class="col-xs-12 col-sm-6" >
-          <a href="#" ng-click="$ctrl.removeGraph(key)"><i class="fa fa-close"></i></a>
+        <div  ng-repeat="(key, graph) in $ctrl.DashboardService.displayedGraphs track by $index" class="col-xs-12 col-sm-6" >
+          <a href="#" ng-click="$ctrl.DashboardService.removeGraph(key)"><i class="fa fa-close"></i></a>
           <ng-include src="graph"></ng-include>
         </div>        
       </div>
       <div class="row">
-        <div ng-repeat="(key, table) in $ctrl.displayedTables track by $index" class="col-md-12" >
-            <a href="#" ng-click="$ctrl.removeTable(key)"><i class="fa fa-close"></i></a>
+        <div ng-repeat="(key, table) in $ctrl.DashboardService.displayedTables track by $index" class="col-md-12" >
+            <a href="#" ng-click="$ctrl.DashboardService.removeTable(key)"><i class="fa fa-close"></i></a>
             <ng-include src="table"></ng-include>
         </div>        
       </div>

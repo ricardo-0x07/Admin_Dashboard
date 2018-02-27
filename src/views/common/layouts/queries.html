@@ -1,0 +1,103 @@
+<div ng-controller="DynamicQueriesCtrl as $ctrl">
+  <div  class="row" style="display: flex; flex: 1">
+    <div class="col-md-2" style="display: flex; flex-direction: column; justify-content: stretch; flex: 1">
+      <div class="row" style="">
+        <!-- Single button using append-to-body -->
+        <div class="btn-group" uib-dropdown dropdown-append-to-body>
+            <button id="btn-append-to-body" type="button" class="btn btn-danger" uib-dropdown-toggle style="max-height: 3em; margin-top: 3em">
+              Select Table <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+              <li class="btn" style="display: block" role="menuitem" ng-repeat="(key, value) in $ctrl.QueriesService.tables track by key">
+                <a href="#" ng-click="$ctrl.QueriesService.addTable(key)">{{key | uppercase }}</a>
+              </li>
+            </ul>
+          </div>        
+      </div>
+
+
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <h6>Columns</h6>
+        <ul class="btn-group-toggle" style="list-style:none">
+          <li>Check All
+              <input type="checkbox" ng-model="selectedAll" ng-click="$ctrl.checkAllColumns()" />
+          </li>
+          <li ng-repeat="col in $ctrl.QueriesService.currentSelectedTableColumns">
+            <label class="btn btn-secondary">
+              <input type="checkbox" ng-model="col.selected"> {{col.name}}
+            </label>
+          </li>
+        </ul>       
+      </div>
+
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <h6>Keyword</h6>
+        <ul class="btn-group-toggle" style="list-style:none">
+          <li ng-repeat="col in $ctrl.logicOptions">
+            <label class="btn btn-secondary">
+              <input type="checkbox" ng-model="col.selected"> {{col.name}}
+            </label>
+          </li>
+        </ul>       
+      </div>
+
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <h6>Group by</h6>
+        <ul class="btn-group-toggle" style="list-style:none">
+          <li>Check All
+              <input type="checkbox" ng-model="selectedAllGroupsBy" ng-click="$ctrl.checkAllGroups()" />
+          </li>
+          <li ng-repeat="col in $ctrl.groupOptions">
+            <label class="btn btn-secondary">
+              <input type="checkbox" ng-model="col.selected"> {{col.name}}
+            </label>
+          </li>
+        </ul>       
+      </div>
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <h6>Order by</h6>
+        <ul class="btn-group-toggle" style="list-style:none">
+          <li>Check All
+              <input type="checkbox" ng-model="selectedAllOrderBy" ng-click="$ctrl.checkAllOrderBy()" />
+          </li>
+          <li ng-repeat="col in $ctrl.orderOptions">
+            <label class="btn btn-secondary">
+              <input type="checkbox" ng-model="col.selected"> {{col.name}}
+            </label>
+          </li>
+        </ul>       
+      </div>
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <h6>Math Ops</h6>
+        <ul class="btn-group-toggle" style="list-style:none">
+          <li>Check All
+              <input type="checkbox" ng-model="selectedAllMathOpts" ng-click="$ctrl.checkAllMathOps()" />
+          </li>
+          <li ng-repeat="col in $ctrl.mathOptions">
+            <label class="btn btn-secondary">
+              <input type="checkbox" ng-model="col.selected"> {{col.name}}
+            </label>
+          </li>
+        </ul>       
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        ng-model="singleModel"
+        style="margin-bottom: 2em"
+      >
+        Execute
+      </button>
+    </div>
+
+
+    <div class="col-md-10" style="display: flex">
+      <div class="row">
+        <ng-include src="$ctrl.QueriesService.currentSelectedTable"></ng-include>
+      </div>
+      <div class="row" style="align-self: flex-end;">
+        <div class="card card-block bg-faded" >Results:  </div>
+      </div>
+    </div>
+  </div>
+</div>

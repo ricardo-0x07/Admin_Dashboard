@@ -23,15 +23,20 @@ angular
   'ui.bootstrap',
   'datatables',
   'datatables.bootstrap',
+  'ngLodash',
+  'angular-flapper',
+  'datatables.options'
 ])
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
   cfpLoadingBarProvider.latencyThreshold = 1;
 }])
-.run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
+.run(['$rootScope', '$state', '$stateParams', 'DTDefaultOptions', function($rootScope, $state, $stateParams, DTDefaultOptions) {
+  // DTDefaultOptions.setLoadingTemplate('<div flapper-repeat ng-model="$ctrl.flapper"  nbflap="12" />');
   $rootScope.$on('$stateChangeSuccess',function(){
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   });
   $rootScope.$state = $state;
   return $rootScope.$stateParams = $stateParams;
 }]);
+

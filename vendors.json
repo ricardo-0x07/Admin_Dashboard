@@ -35,6 +35,9 @@
     "node_modules/moment/min/moment.min.js",
     "node_modules/oclazyload/dist/ocLazyLoad.min.js",
     "node_modules/popper.js/dist/umd/popper.min.js",
-    "node_modules/popper.js/dist/umd/popper.min.js.map"
+    "node_modules/popper.js/dist/umd/popper.min.js.map",
+    "bower_components/flapper/css/flapper.css",
+    "bower_components/flapper/src/jquery.flapper.js",
+    "bower_components/angular-flapper/dist/ng-flapper.js"
   ]
 }

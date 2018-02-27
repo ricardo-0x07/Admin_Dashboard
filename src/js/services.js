@@ -3,6 +3,7 @@
 angular
 .module('app')
 .factory('TaskService', TaskService);
+// .factory('DashboardService', DashboardService);
 
 function TaskService() {
      var date = new Date();
@@ -18,7 +19,7 @@ function TaskService() {
             {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
             {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
         ],
-        getTasks: function async () {
+        getTasks: function () {
             return this.tasks;
         },
         addTasks: function (task) {

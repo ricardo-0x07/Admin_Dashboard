@@ -2,7 +2,7 @@ angular
 .module('app')
 .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/login');
 
   $ocLazyLoadProvider.config({
     // Set to true if you want to see what and when is dynamically loaded
@@ -179,7 +179,7 @@ angular
   })
   .state('app.calendar', {
     url: '/calendar',
-    templateUrl: 'views/plugins/calendar.html',
+    templateUrl: 'views/common/layouts/scheduler.html',
     ncyBreadcrumb: {
       label: '{{ "CALENDAR" | translate }}'
     },
@@ -226,7 +226,8 @@ angular
         return $ocLazyLoad.load({
           files: [
             'js/controllers/calendar.js',
-            'js/controllers/event-form-modal.js'
+            'js/controllers/event-form-modal.js',
+            'js/controllers/scheduler.js',
           ]
         });
       }]
@@ -234,7 +235,7 @@ angular
   })
   .state('app.queries', {
     url: '/queries',
-    templateUrl: 'views/common/queries-tables.html',
+    templateUrl: 'views/common/layouts/queries.html',
     //page title goes here
     ncyBreadcrumb: {
       label: 'Queries',
@@ -284,7 +285,10 @@ angular
       loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
         // you can lazy load controllers
         return $ocLazyLoad.load({
-          files: ['js/controllers/tables.js']
+          files: [
+            'js/controllers/tables.js',
+            'js/controllers/queries.js',
+          ]
         }).then(function success(args) {
           console.log('success');
           return args;
@@ -317,7 +321,66 @@ angular
   // Additional Pages
   .state('appSimple.login', {
     url: '/login',
-    templateUrl: 'views/pages/login.html'
+    templateUrl: 'views/pages/login.html',
+    //page title goes here
+    ncyBreadcrumb: {
+      label: 'Queries',
+    },
+    //page subtitle goes here
+    params: { subtitle: 'Welcome to Data Queries' },
+    resolve: {
+      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load CSS files
+        return $ocLazyLoad.load([{
+          serie: true,
+          name: 'Toastr',
+          files: ['vendors/css/toastr.min.css']
+        },{
+          serie: true,
+          name: 'DateRangePicker',
+          files: ['vendors/css/daterangepicker.min.css']
+        }]);
+      }],
+      loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
+        // you can lazy load files for an existing module
+        return $ocLazyLoad.load([
+          {
+            serie: true,
+            name: 'chart.js',
+            files: [
+              'vendors/js/Chart.min.js',
+              'vendors/js/angular-chart.min.js'
+            ]
+          },
+          {
+            serie: true,
+            files: ['vendors/js/moment.min.js']
+          },
+          {
+            serie: true,
+            files: [
+              'vendors/js/daterangepicker.min.js',
+              'vendors/js/angular-daterangepicker.min.js'
+            ]
+          },
+          {
+            files: ['vendors/js/angular-toastr.tpls.min.js']
+          }
+        ]);
+      }],
+      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load controllers
+        return $ocLazyLoad.load({
+          files: ['js/controllers/authentication.js']
+        }).then(function success(args) {
+          console.log('success');
+          return args;
+        }, function error(err) {
+          console.log(err);
+        return err;
+        });
+      }]
+    }
   })
   .state('appSimple.register', {
     url: '/register',

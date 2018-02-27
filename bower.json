@@ -1,0 +1,22 @@
+{
+  "name": "yottas.io",
+  "description": "Open Source Bootstrap Admin Template",
+  "main": "index.html",
+  "authors": [
+    "Łukasz Holeczek"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ricardo-0x07/Admin_Dashboard",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flapper": "^1.1.3",
+    "angular-flapper": "^0.1.0"
+  }
+}

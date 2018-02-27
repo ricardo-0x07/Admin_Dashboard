@@ -1,15 +1,19 @@
-<div class="animated fadeIn">
+<div class="animated fadeIn" ng-controller="BootstrapIntegrationCtrl as $ctrl">
     <div >
-        <div class="card">
+        <div ng-if="showFlapper">
+            <div flapper-repeat ng-model="$ctrl.flapper"  nbflap="23" timing=150/>
+        </div>
+        <div class="card" >
             <div class="card-header">
                 <i class="fa fa-align-justify"></i> Users
             </div>
             <div class="card-body">
-                <div class="container-fluid" ng-controller="BootstrapIntegrationCtrl as vm">
+                <div class="container-fluid" >
                     <table
                         datatable=""
-                        dt-options="vm.dtOptions"
-                        dt-columns="vm.dtColumns"  
+                        ng-if="!showFlapper"
+                        dt-options="$ctrl.dtOptions"
+                        dt-columns="$ctrl.dtColumns"  
                         class="table responsive nowrap table-bordered table-striped"
                         width="100%"
                     ></table>        
@@ -17,7 +21,6 @@
             </div>        
         </div>            
     </div>
-</div>
-        
+</div>     
           
       
