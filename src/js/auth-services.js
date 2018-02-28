@@ -13,7 +13,7 @@ function AuthService($state) {
     return {
         error: false,
         users: [
-            {username: "user", password: "password", email: "user@test.com"}
+            {username: "user", password: "Letmein1232", email: "user@test.com"}
         ],
         login: function (item) {
             console.log('item', item);

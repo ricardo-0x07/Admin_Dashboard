@@ -6,7 +6,7 @@
  * @license http://coreui.io/pro/license/
  -->
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app" >
 <head>
 
   <meta charset="utf-8">
@@ -17,7 +17,7 @@
   <meta name="keyword" content=",">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>CoreUI Pro - Bootstrap 4 Admin Template</title>
+  <title>Data Mining Dashboard</title>
 
   <!-- Main styles for this application -->
   <link href="css/style.css" rel="stylesheet">
@@ -60,10 +60,11 @@
 
 -->
 
-<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden" >
 
   <!-- User Interface -->
-  <ui-view class="app"></ui-view>
+  <ui-view class="app" loading-pane="isPaneShown" ng-controller="AppCtrl"></ui-view>
+  <!--<ui-view class="app" ng-loading="isPaneShown"></ui-view>-->
 
   <!-- Bootstrap and necessary plugins -->
   <!--<script src="vendors/js/jquery.min.js"></script>-->
@@ -101,8 +102,6 @@
   <script src="../bower_components/flapper/src/jquery.flapper.js"></script>
   <script src="../bower_components/angular-flapper/dist/ng-flapper.js"></script>
 
-  <!-- <script src="vendors/angular-ui-bootstrap4/ui-bootstrap.js"></script> -->
-
   <!-- AngularJS CoreUI Pro App scripts -->
 
   <script src="js/app.js"></script>
@@ -119,6 +118,5 @@
   <script src="js/controllers.js"></script>
   <script src="js/directives.js"></script>
   <script src="js/translations.js"></script>
-
 </body>
 </html>

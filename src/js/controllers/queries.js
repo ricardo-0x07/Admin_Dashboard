@@ -1,9 +1,11 @@
 angular.module("app")
   .controller("DynamicQueriesCtrl", DynamicQueriesCtrl);
 
-DynamicQueriesCtrl.$inject =['QueriesService'];
-function DynamicQueriesCtrl(QueriesService) {
+DynamicQueriesCtrl.$inject =['QueriesService', '$rootScope'];
+function DynamicQueriesCtrl(QueriesService, $rootScope) {
     var $ctrl = this;
+    $rootScope.isPaneShown = false;
+    
     $ctrl.selectedAll = false;
     $ctrl.selectedAllGroupsBy = false;
     $ctrl.selectedAllOrderBy = false;

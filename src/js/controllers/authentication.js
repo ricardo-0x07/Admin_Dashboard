@@ -1,10 +1,10 @@
 angular.module("app")
   .controller("AuthCtrl", AuthCtrl);
 
-AuthCtrl.$inject =['AuthService'];
-function AuthCtrl(AuthService) {
+AuthCtrl.$inject =['AuthService', '$rootScope'];
+function AuthCtrl(AuthService, $rootScope) {
     var $ctrl = this;
-    $ctrl.auth = {}
-    console.log('AuthService', AuthService);
-    $ctrl.AuthService = AuthService;    
+    $ctrl.auth = {};
+    $ctrl.AuthService = AuthService;
+    $rootScope.isPaneShown = false;
 }

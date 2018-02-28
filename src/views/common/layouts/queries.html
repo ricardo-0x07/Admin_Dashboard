@@ -1,6 +1,6 @@
 <div ng-controller="DynamicQueriesCtrl as $ctrl">
-  <div  class="row" style="display: flex; flex: 1">
-    <div class="col-md-2" style="display: flex; flex-direction: column; justify-content: stretch; flex: 1">
+  <div  class="row" style="display: flex; flex: 1; ">
+    <div class="col-md-2 " style="display: flex; flex-direction: column; justify-content: stretch; flex: 1; padding-right:2em; overflow: scroll; height: 70%;" >
       <div class="row" style="">
         <!-- Single button using append-to-body -->
         <div class="btn-group" uib-dropdown dropdown-append-to-body>
@@ -17,69 +17,104 @@
 
 
       <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
-        <h6>Columns</h6>
-        <ul class="btn-group-toggle" style="list-style:none">
-          <li>Check All
-              <input type="checkbox" ng-model="selectedAll" ng-click="$ctrl.checkAllColumns()" />
-          </li>
-          <li ng-repeat="col in $ctrl.QueriesService.currentSelectedTableColumns">
-            <label class="btn btn-secondary">
-              <input type="checkbox" ng-model="col.selected"> {{col.name}}
-            </label>
-          </li>
-        </ul>       
+        <div class="card">
+            <div class="card-header">
+              <li style="list-style:none;">
+                  <input type="checkbox" ng-model="selectedAll" ng-click="$ctrl.checkAllColumns()" />
+                  All Columns
+              </li>
+              <div class="card-actions">
+              </div>
+            </div>
+            <div class="card-body" style="display: flex; align-items:center; flex:1; padding:0; justify-content: center">
+              <ul class="btn-group-toggle" style="list-style:none; flex: 1; margin-bottom:0em">
+                <li ng-repeat="col in $ctrl.QueriesService.currentSelectedTableColumns">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </li>
+              </ul>       
+            </div>
+        </div>
+      </div>
+
+
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <div class="card">
+            <div class="card-header">
+                <h6>Keywords</h6>
+              <div class="card-actions">
+              </div>
+            </div>
+            <div class="card-body" style="display: flex; align-items:center; flex:1; padding:0; justify-content: center">
+              <ul class="btn-group-toggle" style="list-style:none; flex: 1; margin-bottom:0em">
+                <li ng-repeat="col in $ctrl.logicOptions">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </li>
+              </ul>       
+            </div>
+        </div>
+      </div>
+
+
+      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
+        <div class="card">
+            <div class="card-header">
+              <li style="list-style:none;">
+                  <input type="checkbox" ng-model="selectedAllGroupsBy" ng-click="$ctrl.checkAllGroups()" />
+                  Group by All
+              </li>
+              <div class="card-actions">
+              </div>
+            </div>
+            <div class="card-body" style="display: flex; align-items:center; flex:1; padding:0; justify-content: center">
+              <ul class="btn-group-toggle" style="list-style:none; flex: 1; margin-bottom:0em">
+                <li ng-repeat="col in $ctrl.groupOptions">
+                  <input type="checkbox" ng-model="col.selected"> {{col.name}}
+                </li>
+              </ul>       
+            </div>
+        </div>
       </div>
 
       <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
-        <h6>Keyword</h6>
-        <ul class="btn-group-toggle" style="list-style:none">
-          <li ng-repeat="col in $ctrl.logicOptions">
-            <label class="btn btn-secondary">
-              <input type="checkbox" ng-model="col.selected"> {{col.name}}
-            </label>
-          </li>
-        </ul>       
+        <div class="card">
+          <div class="card-header">
+            <li style="list-style:none;">
+                <input type="checkbox" ng-model="selectedAllOrderBy" ng-click="$ctrl.checkAllOrderBy()" />
+                Order by All
+            </li>
+            <div class="card-actions">
+            </div>
+          </div>
+          <div class="card-body" style="display: flex; align-items:center; flex:1; padding:0; justify-content: center">
+            <ul class="btn-group-toggle" style="list-style:none; flex: 1; margin-bottom:0em">
+              <li ng-repeat="col in $ctrl.orderOptions">
+                <input type="checkbox" ng-model="col.selected"> {{col.name}}
+              </li>
+            </ul>       
+          </div>
+        </div>
       </div>
-
+  
       <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
-        <h6>Group by</h6>
-        <ul class="btn-group-toggle" style="list-style:none">
-          <li>Check All
-              <input type="checkbox" ng-model="selectedAllGroupsBy" ng-click="$ctrl.checkAllGroups()" />
-          </li>
-          <li ng-repeat="col in $ctrl.groupOptions">
-            <label class="btn btn-secondary">
-              <input type="checkbox" ng-model="col.selected"> {{col.name}}
-            </label>
-          </li>
-        </ul>       
+        <div class="card">
+          <div class="card-header">
+            <li style="list-style:none;">
+                <input type="checkbox" ng-model="selectedAllMathOpts" ng-click="$ctrl.checkAllMathOps()" />
+                All Math Ops
+            </li>
+            <div class="card-actions">
+            </div>
+          </div>
+          <div class="card-body" style="display: flex; align-items:center; flex:1; padding:0; justify-content: center">
+            <ul class="btn-group-toggle" style="list-style:none; flex: 1; margin-bottom:0em">
+              <li ng-repeat="col in $ctrl.mathOptions">
+                <input type="checkbox" ng-model="col.selected"> {{col.name}}
+              </li>
+            </ul>       
+          </div>
+        </div>
       </div>
-      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
-        <h6>Order by</h6>
-        <ul class="btn-group-toggle" style="list-style:none">
-          <li>Check All
-              <input type="checkbox" ng-model="selectedAllOrderBy" ng-click="$ctrl.checkAllOrderBy()" />
-          </li>
-          <li ng-repeat="col in $ctrl.orderOptions">
-            <label class="btn btn-secondary">
-              <input type="checkbox" ng-model="col.selected"> {{col.name}}
-            </label>
-          </li>
-        </ul>       
-      </div>
-      <div class="row" style="display: flex; flex-direction: column; padding-top: 1em">
-        <h6>Math Ops</h6>
-        <ul class="btn-group-toggle" style="list-style:none">
-          <li>Check All
-              <input type="checkbox" ng-model="selectedAllMathOpts" ng-click="$ctrl.checkAllMathOps()" />
-          </li>
-          <li ng-repeat="col in $ctrl.mathOptions">
-            <label class="btn btn-secondary">
-              <input type="checkbox" ng-model="col.selected"> {{col.name}}
-            </label>
-          </li>
-        </ul>       
-      </div>
+  
       <button
         type="button"
         class="btn btn-primary"
@@ -91,11 +126,11 @@
     </div>
 
 
-    <div class="col-md-10" style="display: flex">
+    <div class="col-md-10" style="display: flex; justify-content:space-between; flex-direction: column">
       <div class="row">
         <ng-include src="$ctrl.QueriesService.currentSelectedTable"></ng-include>
       </div>
-      <div class="row" style="align-self: flex-end;">
+      <div class="row" style="">
         <div class="card card-block bg-faded" >Results:  </div>
       </div>
     </div>

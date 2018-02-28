@@ -32,11 +32,37 @@ angular
   cfpLoadingBarProvider.latencyThreshold = 1;
 }])
 .run(['$rootScope', '$state', '$stateParams', 'DTDefaultOptions', function($rootScope, $state, $stateParams, DTDefaultOptions) {
-  // DTDefaultOptions.setLoadingTemplate('<div flapper-repeat ng-model="$ctrl.flapper"  nbflap="12" />');
+  // DTDefaultOptions.setLoadingTemplate('<div flapper-repeat ng-model="$rootScope.flapper"  nbflap="12" />');
   $rootScope.$on('$stateChangeSuccess',function(){
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   });
   $rootScope.$state = $state;
   return $rootScope.$stateParams = $stateParams;
-}]);
+  // $rootScope.isPaneShown = false;
+  // angular.element(function () {
+  //   $rootScope.isPaneShown = true;
+  //   console.log('$rootscope angular.element');
+  // });  
+  $rootScope.isPaneShown = true; 
+  // $rootScope.$on('$viewContentLoading', function(eve){
+  //   //Here your view content is fully loaded !!
+  //   $rootScope.isPaneShown = true;
+  //   console.log('$viewContentLoading', eve);
+  // });
+  // $rootScope.$on('$viewContentLoaded', function(){
+  //   //Here your view content is fully loaded !!
+  //   $rootScope.isPaneShown = true;
+  //   console.log('$viewContentLoaded', event);
+  // });
+}])
+.controller('AppCtrl', AppCtrl);
 
+AppCtrl.$inject =['AuthService', '$rootScope'];
+function AppCtrl(AuthService, $rootScope) {
+    $rootScope.isPaneShown = true;
+    // $rootScope.$watch('$viewContentLoaded', function(){
+    //   //Here your view content is fully loaded !!
+    //   $rootScope.isPaneShown = true;
+    //   console.log('$viewContentLoaded', event);
+    // });
+  }

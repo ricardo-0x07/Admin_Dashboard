@@ -113,7 +113,7 @@ angular
             'js/controllers/tables.js',
           ]
         });
-      }]
+      }],
     }
   })
   .state('app.admin', {
@@ -177,11 +177,11 @@ angular
       }]
     }
   })
-  .state('app.calendar', {
-    url: '/calendar',
+  .state('app.scheduler', {
+    url: '/scheduler',
     templateUrl: 'views/common/layouts/scheduler.html',
     ncyBreadcrumb: {
-      label: '{{ "CALENDAR" | translate }}'
+      label: '{{ "Scheduler" | translate }}'
     },
     resolve: {
       loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -315,6 +315,20 @@ angular
           files: ['vendors/css/simple-line-icons.min.css']
         }]);
       }],
+      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load controllers
+        return $ocLazyLoad.load({
+          files: [
+            'js/controllers/simple.js',
+          ]
+        }).then(function success(args) {
+          console.log('success');
+          return args;
+        }, function error(err) {
+          console.log(err);
+        return err;
+        });
+      }]
     }
   })
 

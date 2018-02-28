@@ -1,15 +1,16 @@
-<div class="app flex-row align-items-center">
-  <div class="container">
+<div class="app flex-row align-items-center" >
+  <div class="container" ng-controller="AuthCtrl as $ctrl">
+
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card-group">
           <div class="card p-4">
-            <div
+            <form
               class="card-body"
               name="form"
-              ng-controller="AuthCtrl as $ctrl"
               id="login"
               novalidate
+              
               ng-keyup="$event.keyCode == 13 && !form.$invalid && $ctrl.AuthService.login($ctrl.auth)" 
             >
               <h1>Login</h1>
@@ -28,8 +29,8 @@
                   placeholder="Username"
                   ng-model="$ctrl.auth.username"
                 />
-                <span class="label label-danger" ng-show="form.username.$touched && form.username.$error.required">Kindly enter an username.</span>
               </div>
+              <span class="label label-danger" style="color: red" ng-show="form.username.$touched && form.username.$error.required">Kindly enter your username.</span>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
@@ -45,9 +46,11 @@
                   placeholder="Password"
                   autocomplete="password"
                   ng-model="$ctrl.auth.password"
+                  ng-pattern="/(?=.*[A-Z][a-z])(?=.*\d)[A-Z\da-z\S\s]{8,}/" 
                 />
-              <span class="label label-danger" ng-show="form.pass.$touched && form.pass.$error.required">Kindly enter your password.</span>
               </div>
+              <span class="label label-danger" style="color: red" ng-show="form.pass.$touched && form.pass.$error.required">Kindly enter your password.</span>
+              <span class="label label-danger" style="color: red" ng-show="form.pass.$touched && form.pass.$error.pattern">Kindly your password, at leasts 8 characters long consisting of at least one number, one lower case letter and one upper case letter.</span>
               <div class="row">
                 <div class="col-6">
                   <button
@@ -61,7 +64,18 @@
                   <button type="button" class="btn btn-link px-0">Forgot password?</button>
                 </div>
               </div>
-              <spam class="label label-danger" style="color: red" ng-show="$ctrl.AuthService.error">Incorrect user name or password!</spam>
+              <div class="row">
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-warning px-4"
+                      ng-click="$ctrl.AuthService.reset($ctrl.auth)"
+                      ng-disabled='form.$invalid'
+                      style="margin-top: 1em"  
+                    >Reset Password Request</button>
+                  </div>
+                </div>
+                <spam class="label label-danger" style="color: red" ng-show="$ctrl.AuthService.error">Incorrect user name or password!</spam>
             </form>
           </div>
           <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
@@ -80,4 +94,5 @@
       </div>
     </div>
   </div>
+
 </div>

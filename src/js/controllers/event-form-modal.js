@@ -28,8 +28,8 @@ function EventFormModalController($scope, $uibModalInstance, item, title) {
     $ctrl.item.date = {
         startDate: moment().subtract(5, 'days'),
         endDate: moment()
-      };
-      $ctrl.opts = {
+    };
+    $ctrl.opts = {
         drops: 'down',
         opens: 'left',
         ranges: {
@@ -39,7 +39,7 @@ function EventFormModalController($scope, $uibModalInstance, item, title) {
           'Last 30 days': [moment().subtract(30, 'days'), moment()],
           'This month': [moment().startOf('month'), moment().endOf('month')]
         }
-      };
+    };
     
       //Watch for date changes
       $scope.$watch('$ctrl.item.date', function(newDate) {

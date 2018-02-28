@@ -1,9 +1,10 @@
 angular.module("app")
   .controller("DynamicDashboardCtrl", DynamicDashboardCtrl);
 
-DynamicDashboardCtrl.$inject =['DashboardService'];
+DynamicDashboardCtrl.$inject =['DashboardService', '$rootScope'];
 
-function DynamicDashboardCtrl(DashboardService) {
+function DynamicDashboardCtrl(DashboardService, $rootScope) {
     var $ctrl = this;
     $ctrl.DashboardService = DashboardService;
+    $rootScope.isPaneShown = false;
 }
